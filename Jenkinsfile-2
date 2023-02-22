@@ -7,29 +7,29 @@ pipeline {
     }
 
     stages {
-//         stage ('Sonarcube Scan') {
-//         steps {
-//          script {
-//           scannerHome = tool 'Sonar-inst'
-//         }
-//         withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]){
-//         withSonarQubeEnv('SonarQubeScanner') {
-//           sh " ${scannerHome}/bin/sonar-scanner \
-//           -Dsonar.projectKey=CliXX-APP-IFEDAYO   \
-//           -Dsonar.login=${SONAR_TOKEN} "
-//         }
-//         }
-//         }
+        stage ('Sonarcube Scan') {
+        steps {
+         script {
+          scannerHome = tool 'Sonar-inst'
+        }
+        withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]){
+        withSonarQubeEnv('SonarQubeScanner') {
+          sh " ${scannerHome}/bin/sonar-scanner \
+          -Dsonar.projectKey=CliXX-APP-IFEDAYO   \
+          -Dsonar.login=${SONAR_TOKEN} "
+        }
+        }
+        }
 
-// }
+}
 
-//         stage('Quality Gate') {
-//             steps {
-//                 timeout(time: 3, unit: 'MINUTES') {
-//                     waitForQualityGate abortPipeline: true
-//             }
-//             }
-//         }
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 3, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+            }
+            }
+        }
 
           stage ('Build Docker Image') {
           steps {
@@ -90,6 +90,15 @@ pipeline {
 //           }
 //         }
 
+ stage ('Deployment Tear Down Prompt ') {
+              steps {
+                script {
+                def userInput = input(id: 'confirm', message: 'Please Test CliXX Image Deployment. Should I delete now?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Tear Down App', name: 'confirm'] ])
+             }
+             sh " docker stop clixx-cont"
+             sh " docker rm  clixx-cont"
+           }
+        }
 
     }
 }
