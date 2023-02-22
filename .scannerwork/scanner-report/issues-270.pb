@@ -1,0 +1,62 @@
+o
+
+javascriptS2589LRefactor this code so that this expression does not always evaluate to true. 2
+‹‹	 o
+
+javascriptS2589LRefactor this code so that this expression does not always evaluate to true. 2
+ﬁﬁ ë
+
+javascriptS1117["menuControl" hides or potentially hides a variable declared in an outer scope at line 995. 2
+ππ
+ :
+é
+„„ ì
+
+javascriptS1117]"settingValue" hides or potentially hides a variable declared in an outer scope at line 1693. 2
+±±	 :
+é
+ùù é
+
+javascriptS1117X"setting" hides or potentially hides a variable declared in an outer scope at line 3147. 2
+©© :
+é
+ÀÀL Sï
+
+javascriptS1117_"siblingControl" hides or potentially hides a variable declared in an outer scope at line 2285. 2
+ààF T:
+é
+ÌÌ ì
+
+javascriptS1117]"settingValue" hides or potentially hides a variable declared in an outer scope at line 2494. 2
+““ :
+é
+ææ ê
+
+javascriptS1117Y"wasSaved" hides or potentially hides a variable declared in an outer scope at line 3147. 2
+™™	 :
+éÀÀ{ Éé
+
+javascriptS1117X"section" hides or potentially hides a variable declared in an outer scope at line 2549. 2
+îî- 4:
+é
+ıı ì
+
+javascriptS1117]"settingValue" hides or potentially hides a variable declared in an outer scope at line 2383. 2
+‘‘	 :
+é
+œœ é
+
+javascriptS1117X"setting" hides or potentially hides a variable declared in an outer scope at line 3147. 2
+óó :
+é
+ÀÀL Sé
+
+javascriptS1117X"control" hides or potentially hides a variable declared in an outer scope at line 2807. 2
+ìì  ':
+é
+˜˜ é
+
+javascriptS1117X"setting" hides or potentially hides a variable declared in an outer scope at line 3147. 2
+˛˛  ':
+é
+ÀÀL S
