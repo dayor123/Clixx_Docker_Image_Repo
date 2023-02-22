@@ -41,20 +41,20 @@ pipeline {
           }
         }
 
-//   stage ('Starting Docker Image') {
-//           steps {
-//               sh '''
-//               if ( docker ps|grep clixx-cont ) then
-//                  echo "Docker image exists, killing it"
-//                  docker stop clixx-cont
-//                  docker rm clixx-cont
-//                  docker run --name clixx-cont  -p 80:80 -d clixx-image:$VERSION
-//               else
-//                  docker run --name clixx-cont  -p 80:80 -d clixx-image:$VERSION 
-//               fi
-//               '''
-//           }
-//         }
+  stage ('Starting Docker Image') {
+          steps {
+              sh '''
+              if ( docker ps|grep clixx-cont ) then
+                 echo "Docker image exists, killing it"
+                 docker stop clixx-cont
+                 docker rm clixx-cont
+                 docker run --name clixx-cont  -p 80:80 -d clixx-image:$VERSION
+              else
+                 docker run --name clixx-cont  -p 80:80 -d clixx-image:$VERSION 
+              fi
+              '''
+          }
+        }
 
 //   stage ('Restore CliXX Database') {
 //           steps {
