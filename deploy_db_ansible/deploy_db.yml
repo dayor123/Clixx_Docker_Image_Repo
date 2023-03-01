@@ -2,7 +2,7 @@
   - name: "Playing with Ansible and Git"
     hosts: localhost
     connection: local
-    become: ec2-user
+    #become: ec2-user
     vars:
       instance_id: wordpressdbclixxjenkins
       db_snapshot: wordpressdbclixxjenkins-snapshot
@@ -23,4 +23,4 @@
            command: modify
            instance_name: '{{ instance_id }}'
            region: us-east-1
-           vpc_security_groups: sg-096dfd014aed072e6
+           vpc_security_groups: sg-005ee41edc10299e7
