@@ -129,7 +129,6 @@ stage ('Configure DB Instance') {
                 sh '''
                     ECR_URL="${ecr_url}"
                     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_URL
-                    docker tag clixx-image:$VERSION $ECR_URL:clixx-image-$VERSION
                     docker tag clixx-image:$VERSION $ECR_URL:latest
                     docker push $ECR_URL:clixx-image-$VERSION
                     docker push $ECR_URL:latest
