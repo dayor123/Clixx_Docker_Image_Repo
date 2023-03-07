@@ -123,11 +123,11 @@ stage ('Configure DB Instance') {
                 def userInput = input(id: 'confirm', message: 'Push Image To ECR?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Push to ECR?', name: 'confirm'] ])
              }
                 withCredentials([
-                     string(credentialsId: 'ecr_url', variable: 'ecr_url')
+                     string(credentialsId: 'ecr_url2', variable: 'ecr_url2')
                      ]) 
                  {
                 sh '''
-                    ECR_URL="${ecr_url}"
+                    ECR_URL="${ecr_url2}"
                     aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ECR_URL
                     docker tag clixx-image:$VERSION $ECR_URL:clixx-image-$VERSION
                     docker tag clixx-image:$VERSION $ECR_URL:latest
