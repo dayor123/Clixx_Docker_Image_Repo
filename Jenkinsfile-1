@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+
+    environment {
+        VERSION = "1.0.${BUILD_NUMBER}"
+        PATH = "${PATH}:${getSonarPath()}"
+    }
+
+    stages {
+        stage ('Sonarcube Scan') {
+        steps {
+         script {
+          scannerHome = tool 'Sonar-inst'
+        }
+        withCredentials([string(credentialsId: 'SONAR_TOKEN', variable: 'SONAR_TOKEN')]){
+        withSonarQubeEnv('SonarQubeScanner') {
+          sh " ${scannerHome}/bin/sonar-scanner \
+          -Dsonar.projectKey=CliXX-APP-IFEDAYO   \
+          -Dsonar.login=${SONAR_TOKEN} "
+        }
+        }
+        }
+
+}
+
+ stage('Quality Gate') {
+            steps {
+                timeout(time: 3, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+            }
+            }
+        }
+
+    }
+}
+
+def getSonarPath(){
+        def SonarHome= tool name: 'Sonar-inst', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        return SonarHome
+    }
